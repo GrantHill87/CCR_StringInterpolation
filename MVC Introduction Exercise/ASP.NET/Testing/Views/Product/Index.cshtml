@@ -1,0 +1,31 @@
+﻿@model IEnumerable<Product>
+
+<h2>Products</h2>
+
+<div style="display: block"><!--Why did we have to place this block of code up here? between the.... oh.... is it because this is where it will display on the webpage?-->
+    <a href="/Product/InsertProduct/">Create a New Product</a>
+</div>
+
+<table class="table">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Category ID</th>
+        <th>On Sale</th>
+        <th>Stock Level</th>
+    </tr>
+
+    @foreach (var product in @Model)
+    {
+        <tr>
+            <td><a href=/Product/ViewProduct/@product.ProductID>@product.ProductID</a></td>@*<td>@product.ProductID</td>*@@*So, on the webpage where it would normally list the Products alongside their IDs, the ID listed next to each product now becomes clickable -- a link to another page.*@
+            <td>@product.Name</td>
+            <td>@product.Price</td>
+            <td>@product.CategoryID</td>
+            <td>@product.OnSale</td>
+            <td>@product.StockLevel</td>
+        </tr>
+    }
+
+</table>
